@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# React Memoization Examples
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates various memoization patterns in React using `memo`, `useMemo`, and `useCallback` hooks. It provides practical examples of how different types of props affect component re-rendering.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project includes several examples showcasing memoization behavior with:
 
-## Expanding the ESLint configuration
+- Simple props (strings/numbers)
+- Arrays
+- Objects
+- Object properties
+- Functions
+- Nested object properties
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Each example demonstrates the difference between memoized and non-memoized components, helping developers understand when and how to effectively use React's memoization features.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/fernandobelotto/react-memo-examples.git
+cd react-memo-examples
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Run the development server:
+
+```bash
+npm run dev
+```
+
+## Examples
+
+The project includes the following examples:
+
+### 1. Simple Props (`StringNumbers.tsx`)
+
+Demonstrates memoization with primitive values (strings and numbers).
+
+### 2. Arrays (`Arrays.tsx`)
+
+Shows how array references affect memoization and re-rendering.
+
+### 3. Functions (`Functions.tsx`)
+
+Illustrates the use of `useCallback` with function props.
+
+### 4. Objects (`Objects.tsx`)
+
+Demonstrates object reference equality and memoization.
+
+### 5. Object Properties (`ObjectProperties.tsx`)
+
+Shows how passing individual object properties affects memoization.
+
+### 6. Nested Object Properties (`ObjectPropertiesNested.tsx`)
+
+Illustrates memoization behavior with nested data structures.
+
+## Key Concepts
+
+- Components wrapped with `memo` only re-render when their props change
+- `useMemo` helps maintain reference equality for objects and arrays
+- `useCallback` maintains function reference equality
+- Primitive values (strings, numbers) don't require memoization
+- Nested objects and arrays require special consideration for effective memoization
+
+## Development
+
+Each example component includes a counter button to trigger parent re-renders, helping visualize when child components re-render under different memoization strategies.
