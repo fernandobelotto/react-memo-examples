@@ -4,6 +4,8 @@ import { ObjectProperties } from "./examples/ObjectProperties";
 import { ObjectPropertiesNested } from "./examples/ObjectPropertiesNested";
 import { Objects } from "./examples/Objects";
 import { SimpleProps } from "./examples/StringNumbers";
+import { Functions } from "./examples/Functions";
+
 function App() {
   return (
     <>
@@ -28,6 +30,10 @@ function App() {
         <div>
           <p>object properties nested</p>
           <ObjectPropertiesNested />
+        </div>
+        <div>
+          <p>functions</p>
+          <Functions />
         </div>
       </div>
     </>
