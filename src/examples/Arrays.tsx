@@ -2,8 +2,8 @@ import { useMemo, useState, memo } from "react";
 
 export const Arrays = () => {
   const [count, setCount] = useState<number>(0);
-  const itemsMemoized = useMemo(() => [1, 2, 3, 4, 5], []);
-  const items = [1, 2, 3, 4, 5];
+  const itemsMemoized = useMemo(() => [1, 2, 3], []);
+  const items = [1, 2, 3];
 
   return (
     <>
